@@ -12,6 +12,18 @@ import { StaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import "./layout.css"
 
+// import "../scss/layout.scss"
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+* {
+  margin: 5px;
+}
+body {
+  background: beige;
+}
+`
+
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -25,6 +37,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
+        <GlobalStyle />
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
           style={{
