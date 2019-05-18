@@ -22,6 +22,7 @@ const IndexPage = () => (
       <Button>I'm a styled button</Button>
     </div>
     <Link to="/page-2/">Go to page 2</Link>
+    <Link to="/tutorial/">Tutorial</Link>
   </Layout>
 )
 
