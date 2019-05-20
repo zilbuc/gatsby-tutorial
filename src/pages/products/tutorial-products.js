@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../../components/layout';
 import { Button } from '../../components/button';
 
-const Tutorial = ({}) => (
+const Tutorial = () => (
   <Layout>
     <div>Tutorial</div>
     <Button>BATON</Button>
