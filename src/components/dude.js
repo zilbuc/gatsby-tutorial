@@ -21,7 +21,7 @@ const getWill = graphql`
   }
 `
 
-const dude = ({}) => {
+const dude = () => {
   return (
     <StaticQuery
       query={getWill}
