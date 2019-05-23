@@ -1,7 +1,29 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require('path');
 
-// You can delete this file if you're not using it
+module.exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions;
+
+  return graphql(`
+    {
+      allBikeQuery: allContentfulBike {
+        edges {
+          node {
+            id
+            title
+          }
+        }
+      }
+    }
+  `)
+  .then(result => {
+    result.data.allBikeQuery.edges.forEach(({ node }) => {
+      createPage({ path: `bikes/${node.title}`,
+                   component: path.resolve('./src/templates/bike-template.js'),
+                   context: {
+                     id: node.id
+                   }
+      })
+    })
+  })
+  .catch(err => console.log(err))
+}

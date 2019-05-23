@@ -20,7 +20,8 @@ const Bikes = ({ data }) => {
                 ${bike.price}
               </span>
             </h3>
-            <p>{bike.description.description}</p>
+            {/* <p>{bike.description.description}</p> */}
+            <Link to={`/bikes/${bike.title}`}><h3>Details</h3></Link>
           </div>
         )
       })}
